@@ -1,0 +1,21 @@
+package Principal;
+import static Principal.Tokens.*;
+%%
+%class Lexer
+%type Tokens
+L=[a-zA-Z_]+
+D=[0-9]+
+espacio=[ ,\t,\r,\n]+
+%{
+    public String lexeme;
+%}
+%%
+
+{espacio} {/*Ignore*/}
+"//".* {/*Ignore*/}
+"?" {return Pregunta;}
+{L}({L}|{D})* {lexeme=yytext(); return id;}
+("(-"{D}+")")|{D}+ {lexeme=yytext(); return Num;}
+ . {return ERROR;}
+
+
