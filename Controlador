@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Principal;
+import Principal.Tokens;
+import Principal.Ventana;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.text.View;
+
+/**
+ *
+ * @author Assas
+ */
+public class Controlador implements ActionListener {
+
+    private Ventana view;
+
+    public Controlador(Ventana view) {
+        this.view = view;
+       // this.model = model;
+                 
+    }
+        public void iniciar() {
+
+        view.setLocationRelativeTo(null);
+
+    }
+        public boolean verificar(String palabra){
+            boolean verificar = false;
+            
+            if(palabra.replace(" ","").matches("[a-zA-Z_?0-9]*")){
+                verificar = true;
+                System.out.println("correcto");
+            }else{
+                System.out.println("incorrecto");
+            }
+            return verificar;
+        }
+
+
+        
+    public void actionPerformed(ActionEvent e) {
+
+    }
+}
